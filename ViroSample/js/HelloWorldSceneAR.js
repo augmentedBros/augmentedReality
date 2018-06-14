@@ -18,38 +18,6 @@ import {
   ViroAnimations
 } from 'react-viro';
 
-// var createReactClass = require('create-react-class')
-// var HelloWorldSceneAR = createReactClass({
-//   getInitialState() {
-//     return {
-//       text : 'Initializing AR...'
-//     }
-//   },
-//   render: function () {
-//     return (
-//       <ViroARScene onTrackingInitialzed={()=>{this.setState({text : "Hello World!"})}}>
-//         <ViroText text={this.state.text} scale={[.1,.1,.1]} height={1} width={4} position={[0,.5,-1]} style={styles.HelloWorldTextStyle} />
-//         <ViroAmbientLight color={"#aaaaaa"}/>
-//         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,3,1]}/>
-//         <Viro3DObject 
-//           source={require('./res/emoji_smile/emoji_smile.vrx')}
-//           position={[0,0,-1]}
-//           scale={[.2,.2,.2]}
-//           type="VRX"
-//           dragType="FixedDistance" onDrag={()=>{}}
-//         />
-//          <Viro3DObject 
-//           source={require('./res/emoji_smile/emoji_smile.vrx')}
-//           position={[1,1,-10]}
-//           scale={[1,1,1]}
-//           type="VRX"
-//           dragType="FixedDistance" onDrag={()=>{}}
-//         />
-//       </ViroARScene>
-//     )
-//   }
-// })
-
 export default class HelloWorldSceneAR extends Component {
   constructor() {
     super();
@@ -69,14 +37,15 @@ export default class HelloWorldSceneAR extends Component {
         <ViroAmbientLight color={"#aaaaaa"}/>
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,3,1]}/>
 
-        <ViroARPlaneSelector> 
+        <ViroNode position={[0, -1, 0]} dragType="FixedToWorld" onDrag={()=>{}}> 
           <Viro3DObject 
             source={require('./res/emoji_smile/emoji_smile.vrx')}
-            position={[0, .1, 0]}
+            position={[-.5, .5, -1]}
             scale={[.2, .2, .2]}
             type="VRX"
-            dragType="FixedDistance" onDrag={()=>{}} />
-        </ViroARPlaneSelector>
+            // dragType="FixedDistance" onDrag={()=>{}} 
+            />
+        </ViroNode>
         <Viro3DObject 
           source={require('./res/emoji_smile/emoji_smile.vrx')}
           position={[0,0,-1]}
