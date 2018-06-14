@@ -8,6 +8,8 @@ import {
   ViroARScene,
   ViroText,
   ViroConstants,
+  ViroBox,
+  ViroMaterials
 } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
@@ -28,6 +30,7 @@ export default class HelloWorldSceneAR extends Component {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
         <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
+        <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .1]} materials={["grid"]} />
       </ViroARScene>
     );
   }
@@ -38,7 +41,9 @@ export default class HelloWorldSceneAR extends Component {
         text : "Hello World!"
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
+      this.setState({
+        text: 'OH SHIT WHAT THE FUCK DID YOU DO OH GOD!!!'
+      })
     }
   }
 }
