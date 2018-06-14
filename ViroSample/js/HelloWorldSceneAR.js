@@ -40,20 +40,12 @@ export default class HelloWorldSceneAR extends Component {
         <ViroNode position={[0, -1, 0]} dragType="FixedToWorld" onDrag={()=>{}}> 
           <Viro3DObject 
             source={require('./res/emoji_smile/emoji_smile.vrx')}
-            position={[-.5, .5, -1]}
+            position={[0, .5, 0]}
             scale={[.2, .2, .2]}
             type="VRX"
             // dragType="FixedDistance" onDrag={()=>{}} 
             />
         </ViroNode>
-        <Viro3DObject 
-          source={require('./res/emoji_smile/emoji_smile.vrx')}
-          position={[0,0,-1]}
-          scale={[.2,.2,.2]}
-          type="VRX"
-          dragType="FixedDistance" onDrag={()=>{}}
-        />
-       
 
         <ViroText text="I'm a box!!!!" scaled={[.5, .5, .5]} position={[0, 5, -1]} style={styles.helloWorldTextStyle} />
         <ViroBox position={[0, -.5, -1]} scale={[.4, .4, .2]} materials={["grid"]}/>
