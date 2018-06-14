@@ -64,7 +64,7 @@ export default class HelloWorldSceneAR extends Component {
   render() {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
-        <ViroText text={this.state.text} scale={[.1,.1,.1]} height={1} width={4} position={[0,.5,-1]} style={styles.HelloWorldTextStyle} />
+        <ViroText text={this.state.text} scale={[.3,.3,.3]} height={1} width={4} position={[0,.5,-1]} style={styles.HelloWorldTextStyle} />
 
         <ViroAmbientLight color={"#aaaaaa"}/>
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,3,1]}/>
@@ -83,6 +83,9 @@ export default class HelloWorldSceneAR extends Component {
           type="VRX"
           dragType="FixedDistance" onDrag={()=>{}}
         />
+
+        <ViroText text="I'm a box!!!!" scaled={[.5, .5, .5]} position={[0, -4, -1]} style={styles.helloWorldTextStyle} />
+        <ViroBox position={[0, -.5, -1]} scale={[.4, .4, .2]} materials={["grid"]}/>
       </ViroARScene>
     );
   }
@@ -90,7 +93,7 @@ export default class HelloWorldSceneAR extends Component {
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({
-        text : "Fullstack shenanigans!"
+        text : "OH GODDD!"
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
@@ -107,5 +110,11 @@ var styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+ViroMaterials.createMaterials({
+  grid: {
+    diffuseTexture: require('.res/grid_bg.jpg')
+  },
+})
 
 module.exports = HelloWorldSceneAR;
