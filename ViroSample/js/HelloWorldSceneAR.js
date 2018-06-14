@@ -69,6 +69,14 @@ export default class HelloWorldSceneAR extends Component {
         <ViroAmbientLight color={"#aaaaaa"}/>
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,3,1]}/>
 
+        <ViroARPlaneSelector> 
+          <Viro3DObject 
+            source={require('./res/emoji_smile/emoji_smile.vrx')}
+            position={[0, .1, 0]}
+            scale={[.2, .2, .2]}
+            type="VRX"
+            dragType="FixedDistance" onDrag={()=>{}} />
+        </ViroARPlaneSelector>
         <Viro3DObject 
           source={require('./res/emoji_smile/emoji_smile.vrx')}
           position={[0,0,-1]}
@@ -76,15 +84,9 @@ export default class HelloWorldSceneAR extends Component {
           type="VRX"
           dragType="FixedDistance" onDrag={()=>{}}
         />
-        <Viro3DObject 
-          source={require('./res/emoji_smile/emoji_smile.vrx')}
-          position={[1,1,-10]}
-          scale={[1,1,1]}
-          type="VRX"
-          dragType="FixedDistance" onDrag={()=>{}}
-        />
+       
 
-        <ViroText text="I'm a box!!!!" scaled={[.5, .5, .5]} position={[0, -4, -1]} style={styles.helloWorldTextStyle} />
+        <ViroText text="I'm a box!!!!" scaled={[.5, .5, .5]} position={[0, 5, -1]} style={styles.helloWorldTextStyle} />
         <ViroBox position={[0, -.5, -1]} scale={[.4, .4, .2]} materials={["grid"]}/>
       </ViroARScene>
     );
@@ -113,7 +115,7 @@ var styles = StyleSheet.create({
 
 ViroMaterials.createMaterials({
   grid: {
-    diffuseTexture: require('.res/grid_bg.jpg')
+    diffuseTexture: require('./res/grid_bg.jpg')
   },
 })
 
