@@ -48,7 +48,7 @@ export default class HelloWorldSceneAR extends Component {
         </ViroNode>
 
         <ViroText text="I'm a box!!!!" scaled={[.5, .5, .5]} position={[0, 5, -1]} style={styles.helloWorldTextStyle} />
-        <ViroBox position={[0, -.5, -1]} scale={[.4, .4, .2]} materials={["grid"]}/>
+        <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}} />
       </ViroARScene>
     );
   }
@@ -56,7 +56,7 @@ export default class HelloWorldSceneAR extends Component {
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({
-        text : "OH GODDD!"
+        text : "Oh hi mark!"
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
@@ -78,6 +78,15 @@ ViroMaterials.createMaterials({
   grid: {
     diffuseTexture: require('./res/grid_bg.jpg')
   },
+})
+
+ViroAnimations.registerAnimations({
+  rotate: {
+    properties: {
+      rotateY: "+=90"
+    },
+    duration: 250, //.25 seconds
+  }
 })
 
 module.exports = HelloWorldSceneAR;
