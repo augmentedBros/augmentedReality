@@ -15,6 +15,7 @@ import {
   ViroPortal,
   ViroPortalScene,
   Viro3DObject,
+  ViroAnimations
 } from 'react-viro';
 
 var createReactClass = require('create-react-class');
@@ -30,7 +31,11 @@ var MainScene = createReactClass({
               resources={[require('../portal_res/portal_ship/portal_ship_diffuse.png'),
                           require('../portal_res/portal_ship/portal_ship_normal.png'),
                           require('../portal_res/portal_ship/portal_ship_specular.png')]}
-              type="VRX"/>
+              type="VRX"
+              dragType="FixedDistance" 
+              onDrag={()=>{}} 
+              animation={{name: "rotate", run: true, loop: true}}
+              />
           </ViroPortal>
           <Viro360Image source={require("../portal_res/360_island.jpg")} />
         </ViroPortalScene>
@@ -39,4 +44,12 @@ var MainScene = createReactClass({
   },
 });
 
+ViroAnimations.registerAnimations({
+  rotate: {
+    properties: {
+      rotateY: "+=90"
+    },
+    duration: 250,
+  }
+})
 module.exports = MainScene;
