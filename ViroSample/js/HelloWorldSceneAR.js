@@ -23,7 +23,15 @@ export default class HelloWorldSceneAR extends Component {
     super();
     // Set initial state here
     this.state = {
-      text : "Initializing AR..."
+      text : "Initializing AR...",
+      texture: "white",
+      playAnim: false,
+      animateCar: false,
+      tapWhite: false,
+      tapBlue: false,
+      tapGrey: false,
+      tapRed: false,
+      tapYellow: false,
     };
     // bind 'this' to functions
     this._onInitialized = this._onInitialized.bind(this);
