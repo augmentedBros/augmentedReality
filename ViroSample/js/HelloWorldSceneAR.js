@@ -75,6 +75,18 @@ export default class HelloWorldSceneAR extends Component {
         {/* <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}
       
       {/* DICE */}
+
+       <Viro3DObject source={require('./res/object_lamp.vrx')}
+             resources={[require('./res/object_lamp_diffuse.png'),
+                         require('./res/object_lamp_normal.png'),
+                         require('./res/object_lamp_specular.png'),
+                       ]}
+             position={[0, 0, 0]}
+             scale={[0.3, 0.3, 0.3]}
+             type="VRX"
+             dragType="FixedToWorld" onDrag={()=>{}}/>
+
+      
       <Viro3DObject source={require('./res/Dice/dice.obj')}
                              resources={[require('./res/Dice/dice.mtl'),
                                          require('./res/Dice/cost.png'),
