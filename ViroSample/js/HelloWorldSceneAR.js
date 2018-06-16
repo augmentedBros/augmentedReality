@@ -67,9 +67,13 @@ export default class HelloWorldSceneAR extends Component {
             // dragType="FixedDistance" onDrag={()=>{}} 
             />
         </ViroNode> */}
-      <ViroText text={this.state.diceText} scaled={[.4, .4, .4]} height={1} width={4} position={[0, 2, -1]} style={styles.helloWorldTextStyle} />
-        {/* <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}    
-      {/* LAMP */}
+
+      <ViroText text={this.state.diceText} scaled={[.4, .4, .4]} position={[0, 2, -1]} style={styles.helloWorldTextStyle} />
+       
+        {/* <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}
+      
+      {/* DICE */}
+
        {/* <Viro3DObject source={require('./res/lamp/object_lamp.vrx')}
              resources={[require('./res/lamp/object_lamp_diffuse.png'),
                          require('./res/lamp/object_lamp_normal.png'),
@@ -80,28 +84,25 @@ export default class HelloWorldSceneAR extends Component {
              type="VRX"
              dragType="FixedToWorld" onDrag={()=>{}}/> */}
 
-       {/* DICE */}
-      <Viro3DObject source={require('./res/Dice/dice.vrx')}
-                    resources={[require('./res/Dice/Dice_D.jpg'),
-                    require('./res/Dice/Dice_N.jpg'),
-                    ]}      
-                    position={[0, -1, -2]}
-                    scale={[0.3, 0.3, 0.3]}
-                    type="VRX"
-                    dragType="FixedToWorld" onDrag={()=>{}}/>
+      
+      {/* <Viro3DObject source={require('./res/Dice/dice.vrx')}
+                             resources={[require('./res/Dice/Dice_D.jpg'),
+                                         require('./res/Dice/Dice_N.jpg'),
+                                        ]}      
+                                        position={[0, -1, -2]}
+                                        scale={[0.3, 0.3, 0.3]}
+                             type="VRX"
+                             dragType="FixedToWorld" onDrag={()=>{}}/> */}
 
-      {/* Knight */}
-      <Viro3DObject source ={require('./res/knight/knight.vrx')} 
-                    resources={[require('./res/knight/plane_DefaultMaterial_BaseColor.png'),
-                                require('./res/knight/templar_09_-_Default_BaseColor.png'),
-                                require('./res/knight/templar_09_-_Default_Metallic.png'),
-                                require('./res/knight/templar_09_-_Default_Normal.png'),
-                                require('./res/knight/templar_09_-_Default_Roughness.png')]}
-                    position={[0, -2, -2]}
-                    scale={[.2, .2, .2]}
-                    type="VRX"
-                    dragType="FixedToWorld" onDrag={()=>{}}
-      />
+      {/* the knight object */}
+      <Viro3DObject source={require('./res/ittybittyknight/ittybittyknight.vrx')}
+                             resources={[require('./res/ittybittyknight/itty_bitty_knight.png'),
+                                         
+                                        ]}      
+                                        position={[0, -1, -2]}
+                                        scale={[0.3, 0.3, 0.3]}
+                             type="VRX"
+                             dragType="FixedToWorld" onDrag={()=>{}}/>
                            
       <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} />
 {/* COLOR MENU       */}
