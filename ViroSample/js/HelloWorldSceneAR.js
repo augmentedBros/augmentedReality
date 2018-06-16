@@ -71,7 +71,9 @@ export default class HelloWorldSceneAR extends Component {
 
         {/* <ViroText text="I'm a box!!!!" scaled={[.5, .5, .5]} position={[0, 5, -1]} style={styles.helloWorldTextStyle} />
         <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}
+      
       <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} />
+{/* COLOR MENU       */}
         <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} >
           <ViroNode scale={[0,0,0]} transformBehaviors={["billboardY"]} animation={{name:this.state.animName, run:this.state.playAnim}}>
             <ViroSphere materials={["white_sphere"]}
@@ -113,11 +115,8 @@ export default class HelloWorldSceneAR extends Component {
               animation={{name:"tapAnimation", run:this.state.tapYellow, onFinish:this._animateFinished}}
               shadowCastingBitMask={0}
             />
-
           </ViroNode>
-          
-          
-          
+{/* TESLA CAR */}
           <Viro3DObject
             scale={[0,0,0]}
             source={require('./res/tesla/object_car.obj')}
@@ -145,8 +144,26 @@ export default class HelloWorldSceneAR extends Component {
             position={[0, -0.001, 0]}
             width={2.5} height={2.5}
             arShadowReceiver={true} />
-
        </ViroARImageMarker>
+{/* DICE */}
+       <Viro3DObject source={require('./res/Dice/Dice_low.obj')}
+                             resources={[require('./res/Dice_low.obj'),
+                                         require('./res/Dice/Dice_low_DefaultMaterial_Diffuse.png'),
+                                         require('./res/Dice/Dice_low_DefaultMaterial_Metallic.png'),
+                                         require('./res/Dice/Dice_low_DefaultMaterial_Normal.png'),
+                                         require('./res/Dice/Dice_low_DefaultMaterial_Reflection.png'),
+                                         require('./res/Dice/Dice_low_DefaultMaterial_Roughness.png')]}            
+                             position={[0.0, -5.5, -1.15]}
+                             scale={[0.1, 0.1, 0.1]}
+                             type="OBJ"
+                             physicsBody={{
+                               type:'dynamic', 
+                               mass:1,
+                               viroTag="Dice",
+                               force:{value:[0,0,1]},
+                               torque:[0,30,0],
+                             }}
+       />                  
       </ViroARScene>
     );
   }
@@ -300,7 +317,6 @@ ViroAnimations.registerAnimations({
     },
     duration: 250, //.25 seconds
   },
-
   scaleUp:{properties:{scaleX: 1, scaleY: 1, scaleZ: 1,},
       duration: 500, easing: "bounce" },
   scaleDOwn:{properties:{scaleX: 0, scaleY: 0, scaleZ: 0,},
