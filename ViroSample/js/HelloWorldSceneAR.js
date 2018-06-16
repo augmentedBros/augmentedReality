@@ -76,7 +76,7 @@ export default class HelloWorldSceneAR extends Component {
       
       {/* DICE */}
 
-       <Viro3DObject source={require('./res/lamp/object_lamp.vrx')}
+       {/* <Viro3DObject source={require('./res/lamp/object_lamp.vrx')}
              resources={[require('./res/lamp/object_lamp_diffuse.png'),
                          require('./res/lamp/object_lamp_normal.png'),
                          require('./res/lamp/object_lamp_specular.png'),
@@ -84,12 +84,25 @@ export default class HelloWorldSceneAR extends Component {
              position={[0, -1, -2]}
              scale={[0.3, 0.3, 0.3]}
              type="VRX"
-             dragType="FixedToWorld" onDrag={()=>{}}/>
+             dragType="FixedToWorld" onDrag={()=>{}}/> */}
 
       
-      <Viro3DObject source={require('./res/Dice/dice.vrx')}
+      {/* <Viro3DObject source={require('./res/Dice/dice.vrx')}
                              resources={[require('./res/Dice/Dice_D.jpg'),
                                          require('./res/Dice/Dice_N.jpg'),
+                                        ]}      
+                                        position={[0, -1, -2]}
+                                        scale={[0.3, 0.3, 0.3]}
+                             type="VRX"
+                             dragType="FixedToWorld" onDrag={()=>{}}/> */}
+
+      {/* the knight object */}
+      <Viro3DObject source={require('./res/Knight/knight.vrx')}
+                             resources={[require('./res/Knight/plane_DefaultMaterial_BaseColor.png'),
+                                         require('./res/Knight/templar_09_-_Default_BaseColor.png'),
+                                         require('./res/Knight/templar_09_-_Default_Metallic.png'),
+                                         require('./res/Knight/templar_09_-_Default_Normal.png'),
+                                         require('./res/Knight/templar_09_-_Default_Roughness.png')
                                         ]}      
                                         position={[0, -1, -2]}
                                         scale={[0.3, 0.3, 0.3]}
