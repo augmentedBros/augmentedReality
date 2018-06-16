@@ -147,14 +147,15 @@ export default class HelloWorldSceneAR extends Component {
        </ViroARImageMarker>
 {/* DICE */}
        <Viro3DObject source={require('./res/Dice/Dice_low.obj')}
-                             resources={[require('./res/Dice_low.obj'),
+                             resources={[require('./res/Dice/Dice.json'),
+                                         require('./res/Dice/DefaultMaterial_Mixed_AO.png'),
                                          require('./res/Dice/Dice_low_DefaultMaterial_Diffuse.png'),
                                          require('./res/Dice/Dice_low_DefaultMaterial_Metallic.png'),
                                          require('./res/Dice/Dice_low_DefaultMaterial_Normal.png'),
                                          require('./res/Dice/Dice_low_DefaultMaterial_Reflection.png'),
                                          require('./res/Dice/Dice_low_DefaultMaterial_Roughness.png')]}            
-                             position={[0.0, -5.5, -1.15]}
-                             scale={[0.1, 0.1, 0.1]}
+                             position={[0.0, 0.0, -1]}
+                             scale={[0.5, 0.5, 0.5]}
                              type="OBJ"
                              physicsBody={{
                                type:'dynamic', 
