@@ -76,12 +76,12 @@ export default class HelloWorldSceneAR extends Component {
       
       {/* DICE */}
 
-       <Viro3DObject source={require('./res/object_lamp.vrx')}
-             resources={[require('./res/object_lamp_diffuse.png'),
-                         require('./res/object_lamp_normal.png'),
-                         require('./res/object_lamp_specular.png'),
+       <Viro3DObject source={require('./res/lamp/object_lamp.vrx')}
+             resources={[require('./res/lamp/object_lamp_diffuse.png'),
+                         require('./res/lamp/object_lamp_normal.png'),
+                         require('./res/lamp/object_lamp_specular.png'),
                        ]}
-             position={[0, 0, 0]}
+             position={[0, -1, -2]}
              scale={[0.3, 0.3, 0.3]}
              type="VRX"
              dragType="FixedToWorld" onDrag={()=>{}}/>
