@@ -14,6 +14,7 @@ import {
   ViroAmbientLight,
   ViroSpotLight,
   ViroARPlaneSelector,
+  ViroARPlane
   ViroNode,
   ViroAnimations,
   ViroARImageMarker,
@@ -68,45 +69,47 @@ export default class HelloWorldSceneAR extends Component {
             />
         </ViroNode> */}
 
-      <ViroText text={this.state.diceText} scaled={[.4, .4, .4]} position={[0, 2, -1]} style={styles.helloWorldTextStyle} />
+      <ViroText text={this.state.diceText} scaled={[.4, .4, .4]} height={1} width={4} position={[0, 2, -1]} style={styles.helloWorldTextStyle} />
        
         {/* <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}
       
       {/* DICE */}
-
-       {/* <Viro3DObject source={require('./res/lamp/object_lamp.vrx')}
-             resources={[require('./res/lamp/object_lamp_diffuse.png'),
-                         require('./res/lamp/object_lamp_normal.png'),
-                         require('./res/lamp/object_lamp_specular.png'),
-                       ]}
-             position={[0, -1, -2]}
-             scale={[0.3, 0.3, 0.3]}
-             type="VRX"
-             dragType="FixedToWorld" onDrag={()=>{}}/> */}
-
-      
-      {/* <Viro3DObject source={require('./res/Dice/dice.vrx')}
+      <ViroARPlane>
+      <Viro3DObject source={require('./res/Dice/dice.vrx')}
                              resources={[require('./res/Dice/Dice_D.jpg'),
                                          require('./res/Dice/Dice_N.jpg'),
                                         ]}      
                                         position={[0, -1, -2]}
-                                        scale={[0.3, 0.3, 0.3]}
+                                        scale={[0.15, 0.15, 0.15]}
                              type="VRX"
-                             dragType="FixedToWorld" onDrag={()=>{}}/> */}
+                             dragType="FixedToWorld" onDrag={()=>{}}/>
+      </ViroARPlane>
 
-      {/* the knight object */}
+      {/* the little knight object */}
       <Viro3DObject source={require('./res/ittybittyknight/ittybittyknight.vrx')}
                              resources={[require('./res/ittybittyknight/itty_bitty_knight.png'),
-                                         
                                         ]}      
-                                        position={[0, -1, -2]}
+                                        position={[0, 2, -2]}
                                         scale={[0.3, 0.3, 0.3]}
                              type="VRX"
                              dragType="FixedToWorld" onDrag={()=>{}}/>
+
+      {/* templar knight */}
+      <Viro3DObject source={require('./res/knight/knight.vrx')}
+                    resources={[require('./res/knight/plane_DefaultMaterial_BaseColor.png'),
+                    require('./res/knight/templar_09_-_Default_BaseColor.png'),
+                    require('./res/knight/templar_09_-_Default_Metallic.png'),
+                    require('./res/knight/templar_09_-_Default_Normal.png'),
+                    require('./res/knight/templar_09_-_Default_Roughness.png'),
+                              ]}      
+                    position={[0, 4, -2]}
+                    scale={[0.3, 0.3, 0.3]}
+                    type="VRX"
+                    dragType="FixedToWorld" onDrag={()=>{}}/>
                            
-      <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} />
+      {/* <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} /> */}
 {/* COLOR MENU       */}
-        <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} >
+        {/* <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} >
           <ViroNode scale={[0,0,0]} transformBehaviors={["billboardY"]} animation={{name:this.state.animName, run:this.state.playAnim}}>
             <ViroSphere materials={["white_sphere"]}
               heightSegmentCount={20} widthSegmentCount={20} radius={0.03}
@@ -147,9 +150,9 @@ export default class HelloWorldSceneAR extends Component {
               animation={{name:"tapAnimation", run:this.state.tapYellow, onFinish:this._animateFinished}}
               shadowCastingBitMask={0}
             />
-          </ViroNode>
+          </ViroNode> */}
 {/* TESLA CAR */}
-          <Viro3DObject
+          {/* <Viro3DObject
             scale={[0,0,0]}
             source={require('./res/tesla/object_car.obj')}
             resources={[require('./res/tesla/object_car.mtl'),
@@ -176,7 +179,7 @@ export default class HelloWorldSceneAR extends Component {
             position={[0, -0.001, 0]}
             width={2.5} height={2.5}
             arShadowReceiver={true} />
-       </ViroARImageMarker>
+       </ViroARImageMarker> */}
 
       </ViroARScene>
     );
