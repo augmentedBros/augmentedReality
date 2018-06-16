@@ -146,16 +146,12 @@ export default class HelloWorldSceneAR extends Component {
             arShadowReceiver={true} />
        </ViroARImageMarker>
 {/* DICE */}
-       <Viro3DObject source={require('./res/Dice/Dice_low.obj')}
-                             resources={[require('./res/Dice/Dice.json'),
-                                         require('./res/Dice/DefaultMaterial_Mixed_AO.png'),
-                                         require('./res/Dice/Dice_low_DefaultMaterial_Diffuse.png'),
-                                         require('./res/Dice/Dice_low_DefaultMaterial_Metallic.png'),
-                                         require('./res/Dice/Dice_low_DefaultMaterial_Normal.png'),
-                                         require('./res/Dice/Dice_low_DefaultMaterial_Reflection.png'),
-                                         require('./res/Dice/Dice_low_DefaultMaterial_Roughness.png')]}            
+       <Viro3DObject source={require('./res/Dice/dice.obj')}
+                             resources={[require('./res/Dice/dice.mtl'),
+                                         require('./res/Dice/cost.png'),
+                                         require('./res/Dice/cost_n.png'),]}      
                              position={[0.0, 0.0, -1]}
-                             scale={[0.5, 0.5, 0.5]}
+                             scale={[0.25, 0.25, 0.25]}
                              type="OBJ"
                             //  physicsBody={{
                             //    type:'dynamic', 
