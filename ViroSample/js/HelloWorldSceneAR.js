@@ -38,6 +38,7 @@ export default class HelloWorldSceneAR extends Component {
       tapGrey: false,
       tapRed: false,
       tapYellow: false,
+      diceText: "There should be a dice here!!!!"
     };
     // bind 'this' to functions
     this._onInitialized = this._onInitialized.bind(this);
@@ -57,7 +58,7 @@ export default class HelloWorldSceneAR extends Component {
         {/* <ViroText text={this.state.text} scale={[.3,.3,.3]} height={1} width={4} position={[0,.5,-1]} style={styles.HelloWorldTextStyle} /> */}
 
         <ViroAmbientLight color={"#aaaaaa"}/>
-        <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,4,-1]}/>
+        <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,1,-1]}/>
 
         {/* <ViroNode position={[0, -1, 0]} dragType="FixedToWorld" onDrag={()=>{}}> 
           <Viro3DObject 
@@ -69,7 +70,7 @@ export default class HelloWorldSceneAR extends Component {
             />
         </ViroNode> */}
 
-      <ViroText text="There should be a dice here!!!!" scaled={[.4, .4, .4]} position={[0, 5, -1]} style={styles.helloWorldTextStyle} />
+      <ViroText text={this.state.diceText} scaled={[.4, .4, .4]} position={[0, 2, -1]} style={styles.helloWorldTextStyle} />
        
         {/* <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}
       
@@ -78,8 +79,8 @@ export default class HelloWorldSceneAR extends Component {
                              resources={[require('./res/Dice/dice.mtl'),
                                          require('./res/Dice/cost.png'),
                                          require('./res/Dice/cost_n.png'),]}      
-                             position={[0.0, 0.0, -1]}
-                             scale={[0.25, 0.25, 0.25]}
+                             position={[0.0, 0.5, 0]}
+                             scale={[0.5, 0.5, 0.5]}
                              type="OBJ"
                             //  physicsBody={{
                             //    type:'dynamic', 
