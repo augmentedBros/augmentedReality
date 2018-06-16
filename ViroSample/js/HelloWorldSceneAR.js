@@ -57,7 +57,7 @@ export default class HelloWorldSceneAR extends Component {
         {/* <ViroText text={this.state.text} scale={[.3,.3,.3]} height={1} width={4} position={[0,.5,-1]} style={styles.HelloWorldTextStyle} /> */}
 
         <ViroAmbientLight color={"#aaaaaa"}/>
-        <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,3,1]}/>
+        <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,4,-1]}/>
 
         {/* <ViroNode position={[0, -1, 0]} dragType="FixedToWorld" onDrag={()=>{}}> 
           <Viro3DObject 
@@ -69,9 +69,26 @@ export default class HelloWorldSceneAR extends Component {
             />
         </ViroNode> */}
 
-        {/* <ViroText text="I'm a box!!!!" scaled={[.5, .5, .5]} position={[0, 5, -1]} style={styles.helloWorldTextStyle} />
-        <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}
+      <ViroText text="There should be a dice here!!!!" scaled={[.4, .4, .4]} position={[0, 5, -1]} style={styles.helloWorldTextStyle} />
+       
+        {/* <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}
       
+      {/* DICE */}
+      <Viro3DObject source={require('./res/Dice/dice.obj')}
+                             resources={[require('./res/Dice/dice.mtl'),
+                                         require('./res/Dice/cost.png'),
+                                         require('./res/Dice/cost_n.png'),]}      
+                             position={[0.0, 0.0, -1]}
+                             scale={[0.25, 0.25, 0.25]}
+                             type="OBJ"
+                            //  physicsBody={{
+                            //    type:'dynamic', 
+                            //    mass:1,
+                            //    viroTag="Dice",
+                            //    force:{value:[0,0,1]},
+                            //    torque:[0,30,0],
+                            //  }}
+       />   
       <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} />
 {/* COLOR MENU       */}
         <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} >
@@ -145,22 +162,7 @@ export default class HelloWorldSceneAR extends Component {
             width={2.5} height={2.5}
             arShadowReceiver={true} />
        </ViroARImageMarker>
-{/* DICE */}
-       <Viro3DObject source={require('./res/Dice/dice.obj')}
-                             resources={[require('./res/Dice/dice.mtl'),
-                                         require('./res/Dice/cost.png'),
-                                         require('./res/Dice/cost_n.png'),]}      
-                             position={[0.0, 0.0, -1]}
-                             scale={[0.25, 0.25, 0.25]}
-                             type="OBJ"
-                            //  physicsBody={{
-                            //    type:'dynamic', 
-                            //    mass:1,
-                            //    viroTag="Dice",
-                            //    force:{value:[0,0,1]},
-                            //    torque:[0,30,0],
-                            //  }}
-       />                  
+
       </ViroARScene>
     );
   }
