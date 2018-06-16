@@ -92,8 +92,9 @@ export default class HelloWorldSceneAR extends Component {
                                          require('./res/Dice/Dice_N.jpg'),
                                         ]}      
                              position={[0.0, 0.0, -1]}
-                             scale={[0.5, 0.5, 0.5]}
+                             scale={[2, 2, 2]}
                              type="VRX"
+                             dragType="FixedToWorld" onDrag={()=>{}}/>
                             //  physicsBody={{
                             //    type:'dynamic', 
                             //    mass:1,
