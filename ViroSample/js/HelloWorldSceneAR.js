@@ -97,12 +97,9 @@ export default class HelloWorldSceneAR extends Component {
                              dragType="FixedToWorld" onDrag={()=>{}}/> */}
 
       {/* the knight object */}
-      <Viro3DObject source={require('./res/Knight/knight.vrx')}
-                             resources={[require('./res/Knight/plane_DefaultMaterial_BaseColor.png'),
-                                         require('./res/Knight/templar_09_-_Default_BaseColor.png'),
-                                         require('./res/Knight/templar_09_-_Default_Metallic.png'),
-                                         require('./res/Knight/templar_09_-_Default_Normal.png'),
-                                         require('./res/Knight/templar_09_-_Default_Roughness.png')
+      <Viro3DObject source={require('./res/ittybittyknight/ittybittyknight.vrx')}
+                             resources={[require('./res/ittybittyknight/itty_bitty_knight.png'),
+                                         
                                         ]}      
                                         position={[0, -1, -2]}
                                         scale={[0.3, 0.3, 0.3]}
