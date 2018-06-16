@@ -157,13 +157,13 @@ export default class HelloWorldSceneAR extends Component {
                              position={[0.0, 0.0, -1]}
                              scale={[0.5, 0.5, 0.5]}
                              type="OBJ"
-                             physicsBody={{
-                               type:'dynamic', 
-                               mass:1,
-                               viroTag="Dice",
-                               force:{value:[0,0,1]},
-                               torque:[0,30,0],
-                             }}
+                            //  physicsBody={{
+                            //    type:'dynamic', 
+                            //    mass:1,
+                            //    viroTag="Dice",
+                            //    force:{value:[0,0,1]},
+                            //    torque:[0,30,0],
+                            //  }}
        />                  
       </ViroARScene>
     );
