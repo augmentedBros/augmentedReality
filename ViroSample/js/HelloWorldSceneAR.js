@@ -91,7 +91,7 @@ export default class HelloWorldSceneAR extends Component {
                              resources={[require('./res/Dice/Dice_D.jpg'),
                                          require('./res/Dice/Dice_N.jpg'),
                                         ]}      
-                             position={[0.0, 0.5, 0]}
+                             position={[0.0, 0.0, -1]}
                              scale={[0.5, 0.5, 0.5]}
                              type="VRX"
                             //  physicsBody={{
