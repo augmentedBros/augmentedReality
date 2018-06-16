@@ -91,18 +91,11 @@ export default class HelloWorldSceneAR extends Component {
                              resources={[require('./res/Dice/Dice_D.jpg'),
                                          require('./res/Dice/Dice_N.jpg'),
                                         ]}      
-                             position={[0.0, 0.0, -1]}
-                             scale={[2, 2, 2]}
+                                        position={[0, -1, -2]}
+                                        scale={[0.3, 0.3, 0.3]}
                              type="VRX"
                              dragType="FixedToWorld" onDrag={()=>{}}/>
-                            //  physicsBody={{
-                            //    type:'dynamic', 
-                            //    mass:1,
-                            //    viroTag="Dice",
-                            //    force:{value:[0,0,1]},
-                            //    torque:[0,30,0],
-                            //  }}
-       />   
+                           
       <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} />
 {/* COLOR MENU       */}
         <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} >
