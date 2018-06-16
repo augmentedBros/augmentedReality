@@ -87,13 +87,14 @@ export default class HelloWorldSceneAR extends Component {
              dragType="FixedToWorld" onDrag={()=>{}}/>
 
       
-      <Viro3DObject source={require('./res/Dice/dice.obj')}
+      <Viro3DObject source={require('./res/Dice/dice.vrx')}
                              resources={[require('./res/Dice/dice.mtl'),
-                                         require('./res/Dice/cost.png'),
-                                         require('./res/Dice/cost_n.png'),]}      
+                                         require('./res/Dice/Dice_D.png'),
+                                         require('./res/Dice/Dice_N.png'),
+                                        ]}      
                              position={[0.0, 0.5, 0]}
                              scale={[0.5, 0.5, 0.5]}
-                             type="OBJ"
+                             type="VRX"
                             //  physicsBody={{
                             //    type:'dynamic', 
                             //    mass:1,
