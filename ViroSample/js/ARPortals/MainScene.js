@@ -34,7 +34,7 @@ var MainScene = createReactClass({
               type="VRX"
               dragType="FixedDistance" 
               onDrag={()=>{}} 
-              animation={{name: "rotate", run: true, loop: true}}
+              // animation={{name: "rotate", run: true, loop: true}}
               />
           </ViroPortal>
           <Viro360Image source={require("../portal_res/360_island.jpg")} />
