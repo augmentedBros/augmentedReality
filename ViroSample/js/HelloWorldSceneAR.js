@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 
 import {StyleSheet} from 'react-native';
 
+import MainScene from './ARPortals/MainScene'
+
 import {
   ViroARScene,
   ViroText,
@@ -14,7 +16,7 @@ import {
   ViroAmbientLight,
   ViroSpotLight,
   ViroARPlaneSelector,
-  ViroARPlane
+  ViroARPlane,
   ViroNode,
   ViroAnimations,
   ViroARImageMarker,
@@ -70,8 +72,11 @@ export default class HelloWorldSceneAR extends Component {
         </ViroNode> */}
 
       <ViroText text={this.state.diceText} scaled={[.4, .4, .4]} height={1} width={4} position={[0, 2, -1]} style={styles.helloWorldTextStyle} />
-       
-        {/* <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .3]} materials={["grid"]} animation={{name: "rotate", run: true, loop: true}}  dragType="FixedDistance" onDrag={()=>{}}  /> */}
+        {/* <ViroBox position={[0, -.5, -1]} 
+                     scale={[.3, .3, .3]} 
+                     materials={["grid"]} 
+                     animation={{name: "rotate", run: true, loop: true}}  
+                     dragType="FixedDistance" onDrag={()=>{}}  /> */}
       
       {/* DICE */}
       <ViroARPlane>
@@ -82,17 +87,21 @@ export default class HelloWorldSceneAR extends Component {
                                         position={[0, -1, -2]}
                                         scale={[0.15, 0.15, 0.15]}
                              type="VRX"
-                             dragType="FixedToWorld" onDrag={()=>{}}/>
+                             dragType="FixedToWorld" onDrag={()=>{}}
+                             physicsBody={{
+                               type:'dynamic', mass:1,
+                               shape:{type:'box', params:[.15,.15,.15]}
+                             }}
+      />
       </ViroARPlane>
 
       {/* the little knight object */}
       <Viro3DObject source={require('./res/ittybittyknight/ittybittyknight.vrx')}
-                             resources={[require('./res/ittybittyknight/itty_bitty_knight.png'),
-                                        ]}      
-                                        position={[0, 2, -2]}
-                                        scale={[0.3, 0.3, 0.3]}
-                             type="VRX"
-                             dragType="FixedToWorld" onDrag={()=>{}}/>
+                    resources={[require('./res/ittybittyknight/itty_bitty_knight.png')]}      
+                                position={[0, 2, -2]}
+                                scale={[0.3, 0.3, 0.3]}
+                    type="VRX"
+                    dragType="FixedToWorld" onDrag={()=>{}}/>
 
       {/* templar knight */}
       <Viro3DObject source={require('./res/knight/knight.vrx')}
