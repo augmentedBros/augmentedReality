@@ -98,6 +98,8 @@ export default class HelloWorldSceneAR extends Component {
                             //    shape:{type:'box', params:[.15,.15,.15]}
                             //  }}
       />
+
+      
       <ViroQuad
               rotation={[-90,0,0]}
               position={[0, -0.001, 0]}
@@ -380,7 +382,7 @@ ViroAnimations.registerAnimations({
       duration: 50, easing: "easeineaseout"},
   tapAnimation:[["scaleSphereUp", "scaleSphereDown"],],
 
-  scaleDice:{properties:{scaleX: .00, scaleY: .09, scaleZ: .09},
+  scaleDice:{properties:{scaleX: .09, scaleY: .09, scaleZ: .09},
       duration: 500, easing: "bounce" },
 })
 
