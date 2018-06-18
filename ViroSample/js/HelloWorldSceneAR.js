@@ -85,7 +85,7 @@ export default class HelloWorldSceneAR extends Component {
                                          require('./res/Dice/Dice_N.jpg'),
                                         ]}      
                                         position={[0, -1, -2]}
-                                        scale={[0.15, 0.15, 0.15]}
+                                        scale={[0.3, 0.3, 0.3]}
                              type="VRX"
                              dragType="FixedToWorld" onDrag={()=>{}}
                              physicsBody={{
@@ -96,25 +96,28 @@ export default class HelloWorldSceneAR extends Component {
       </ViroARPlane>
 
       {/* the little knight object */}
-      <Viro3DObject source={require('./res/ittybittyknight/ittybittyknight.vrx')}
+      {/* <Viro3DObject source={require('./res/ittybittyknight/ittybittyknight.vrx')}
                     resources={[require('./res/ittybittyknight/itty_bitty_knight.png')]}      
                                 position={[0, 2, -2]}
                                 scale={[0.3, 0.3, 0.3]}
                     type="VRX"
-                    dragType="FixedToWorld" onDrag={()=>{}}/>
+                    dragType="FixedToWorld" onDrag={()=>{}}/> */}
 
-      {/* templar knight */}
-      <Viro3DObject source={require('./res/knight/knight.vrx')}
-                    resources={[require('./res/knight/plane_DefaultMaterial_BaseColor.png'),
-                    require('./res/knight/templar_09_-_Default_BaseColor.png'),
-                    require('./res/knight/templar_09_-_Default_Metallic.png'),
-                    require('./res/knight/templar_09_-_Default_Normal.png'),
-                    require('./res/knight/templar_09_-_Default_Roughness.png'),
-                              ]}      
-                    position={[0, 4, -2]}
-                    scale={[0.3, 0.3, 0.3]}
+      {/* chest */}
+
+      <Viro3DObject source={require('./res/chest/chest.vrx')}
+                    resources={[require('./res/chest/textures/ChestFull_albedo.jpg'),
+                    require('./res/chest/textures/ChestFull_AO.jpg'),
+                    require('./res/chest/textures/ChestFull_metallic.jpg'),
+                    require('./res/chest/textures/ChestFull_normal.jpg'),
+                    require('./res/chest/textures/ChestFull_roughness.jpg'),
+
+                  ]}      
+                                position={[0, 2, -2]}
+                                scale={[0.003, 0.003, 0.003]}
                     type="VRX"
                     dragType="FixedToWorld" onDrag={()=>{}}/>
+     
                            
       {/* <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} /> */}
 {/* COLOR MENU       */}
