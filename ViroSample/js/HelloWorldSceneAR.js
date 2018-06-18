@@ -60,7 +60,7 @@ export default class HelloWorldSceneAR extends Component {
       <ViroARScene>
         {/* <ViroText text={this.state.text} scale={[.3,.3,.3]} height={1} width={4} position={[0,.5,-1]} style={styles.HelloWorldTextStyle} /> */}
         <ViroAmbientLight color={"#aaaaaa"}/>
-        <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,1,-1]}/>
+        <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} position={[0,3,-1]}/>
         {/* <ViroNode position={[0, -1, 0]} dragType="FixedToWorld" onDrag={()=>{}}> 
           <Viro3DObject 
             source={require('./res/emoji_smile/emoji_smile.vrx')}
@@ -84,7 +84,7 @@ export default class HelloWorldSceneAR extends Component {
                              resources={[require('./res/Dice/Dice_D.jpg'),
                                          require('./res/Dice/Dice_N.jpg'),
                                         ]}      
-                                        position={[0, -1, -2]}
+                                        position={[0, 0, -2]}
                                         scale={[0.3, 0.3, 0.3]}
                              type="VRX"
                              dragType="FixedToWorld" onDrag={()=>{}}
@@ -106,15 +106,9 @@ export default class HelloWorldSceneAR extends Component {
       {/* chest */}
 
       <Viro3DObject source={require('./res/chest/chest.vrx')}
-                    resources={[require('./res/chest/textures/ChestFull_albedo.jpg'),
-                    require('./res/chest/textures/ChestFull_AO.jpg'),
-                    require('./res/chest/textures/ChestFull_metallic.jpg'),
-                    require('./res/chest/textures/ChestFull_normal.jpg'),
-                    require('./res/chest/textures/ChestFull_roughness.jpg'),
-
-                  ]}      
-                                position={[0, 2, -2]}
-                                scale={[0.003, 0.003, 0.003]}
+                    materials={["chest"]}
+                    position={[0, 2, -2]}
+                    scale={[0.003, 0.003, 0.003]}
                     type="VRX"
                     dragType="FixedToWorld" onDrag={()=>{}}/>
      
@@ -335,7 +329,13 @@ ViroMaterials.createMaterials({
     lightingModel: "PBR",
     diffuseColor: "rgb(200,142,31)",
   },
-
+  chest: {
+    lightingModel: "PBR",
+    diffuseTexture: require('./res/chest/textures/ChestFull_normal.jpg'),
+    metalnessTexture: require('./res/chest/textures/ChestFull_metallic.jpg'),
+    roughnessTexture: require('./res/chest/textures/ChestFull_roughness.jpg'),
+    aoTexture: require('./res/chest/textures/ChestFull_AO.jpg'),
+  }
 })
 
 //ANIMATIONS
