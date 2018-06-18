@@ -37,6 +37,7 @@ export default class HelloWorldSceneAR extends Component {
       texture: "white",
       playAnim: false,
       animateCar: false,
+      animateDice: false,
       tapWhite: false,
       tapBlue: false,
       tapGrey: false,
@@ -81,6 +82,7 @@ export default class HelloWorldSceneAR extends Component {
                      dragType="FixedDistance" onDrag={()=>{}}  /> */}
       
       {/* DICE */}
+      <ViroARImageMarker target={"dice"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} >
       <ViroARPlane>
       <Viro3DObject source={require('./res/Dice/dice.vrx')}
                              resources={[require('./res/Dice/Dice_D.jpg'),
@@ -90,12 +92,20 @@ export default class HelloWorldSceneAR extends Component {
                                         scale={[0.3, 0.3, 0.3]}
                              type="VRX"
                              dragType="FixedToWorld" onDrag={()=>{}}
-                             physicsBody={{
-                               type:'dynamic', mass:1,
-                               shape:{type:'box', params:[.15,.15,.15]}
-                             }}
+                             animation={{name:"scaleDice", run: this.state.animateDice}}
+                            //  physicsBody={{
+                            //    type:'dynamic', mass:1,
+                            //    shape:{type:'box', params:[.15,.15,.15]}
+                            //  }}
       />
+      <ViroQuad
+              rotation={[-90,0,0]}
+              position={[0, -0.001, 0]}
+              width={2.5} height={2.5}
+              arShadowReceiver={true} 
+        />
       </ViroARPlane>
+      </ViroARImageMarker>
 
       {/* the little knight object */}
       {/* <Viro3DObject source={require('./res/ittybittyknight/ittybittyknight.vrx')}
@@ -106,16 +116,23 @@ export default class HelloWorldSceneAR extends Component {
                     dragType="FixedToWorld" onDrag={()=>{}}/> */}
 
       {/* chest */}
-
-      <Viro3DObject source={require('./res/chest/chest.vrx')}
-                    resources={[require('./res/chest/textures/ChestFull_albedo.jpg')]}
-                    materials={["chest"]}
-                    position={[0, 0, -2]}
-                    scale={[0.003, 0.003, 0.003]}
-                    type="VRX"
-                    dragType="FixedToWorld" onDrag={()=>{}}
-                    />
-     
+      {/* <ViroARImageMarker target={"dice"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} > */}
+        <Viro3DObject source={require('./res/chest/chest.vrx')}
+                      resources={[require('./res/chest/textures/ChestFull_albedo.jpg')]}
+                      materials={["chest"]}
+                      position={[0, 0, -2]}
+                      scale={[0.003, 0.003, 0.003]}
+                      type="VRX"
+                      dragType="FixedToWorld"
+                      onDrag={()=>{}}
+        />
+        {/* <ViroQuad
+              rotation={[-90,0,0]}
+              position={[0, -0.001, 0]}
+              width={2.5} height={2.5}
+              arShadowReceiver={true} 
+        /> */}
+     {/* </ViroARImageMarker> */}
                            
       {/* <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} /> */}
 {/* COLOR MENU       */}
@@ -207,7 +224,8 @@ export default class HelloWorldSceneAR extends Component {
   }
   _onAnchorFound() {
     this.setState({
-      animateCar: true,
+      // animateCar: true,
+      animateDice: true,
     })
   }
 
@@ -360,7 +378,10 @@ ViroAnimations.registerAnimations({
       duration: 50, easing: "easeineaseout"},
   scaleSphereDown:{properties:{scaleX:1, scaleY:1, scaleZ: 1,},
       duration: 50, easing: "easeineaseout"},
-  tapAnimation:[["scaleSphereUp", "scaleSphereDown"],]
+  tapAnimation:[["scaleSphereUp", "scaleSphereDown"],],
+
+  scaleDice:{properties:{scaleX: .00, scaleY: .09, scaleZ: .09},
+      duration: 500, easing: "bounce" },
 })
 
 ViroARTrackingTargets.createTargets({
@@ -368,6 +389,11 @@ ViroARTrackingTargets.createTargets({
     source: require('./res/logo.png'),
     orientation: "Up",
     physicalWidth: 0.165 //real world width in meters
+  },
+  dice: {
+    source: require('./res/dice.jpg'),
+    orientation: "Up",
+    physicalWidth: 0.165
   }
 })
 
