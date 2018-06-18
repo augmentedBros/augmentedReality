@@ -23,7 +23,8 @@ import {
   ViroARTrackingTargets,
   ViroSphere,
   ViroQuad,
-  ViroLightingEnvironment
+  ViroLightingEnvironment,
+  ViroDirectionalLight
 
 } from 'react-viro';
 
@@ -107,8 +108,8 @@ export default class HelloWorldSceneAR extends Component {
       {/* chest */}
 
       <Viro3DObject source={require('./res/chest/chest.vrx')}
-                    resources={'./res/chest/ChestFull_albedo.png'}
-                    // materials={["chest"]}
+                    resources={[require('./res/chest/textures/ChestFull_albedo.jpg')]}
+                    materials={["chest"]}
                     position={[0, 0, -2]}
                     scale={[0.003, 0.003, 0.003]}
                     type="VRX"
