@@ -134,10 +134,10 @@ export default class HelloWorldSceneAR extends Component {
         /> */}
      {/* </ViroARImageMarker> */}
                            
-      {/* <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} /> */}
+      <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')} />
 {/* COLOR MENU       */}
-        {/* <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} >
-          <ViroNode scale={[0,0,0]} transformBehaviors={["billboardY"]} animation={{name:this.state.animName, run:this.state.playAnim}}>
+        <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates} >
+          {/* <ViroNode scale={[0,0,0]} transformBehaviors={["billboardY"]} animation={{name:this.state.animName, run:this.state.playAnim}}>
             <ViroSphere materials={["white_sphere"]}
               heightSegmentCount={20} widthSegmentCount={20} radius={0.03}
               position={[-.2, .25, 0]}
@@ -179,7 +179,7 @@ export default class HelloWorldSceneAR extends Component {
             />
           </ViroNode> */}
 {/* TESLA CAR */}
-          {/* <Viro3DObject
+          <Viro3DObject
             scale={[0,0,0]}
             source={require('./res/tesla/object_car.obj')}
             resources={[require('./res/tesla/object_car.mtl'),
@@ -206,7 +206,7 @@ export default class HelloWorldSceneAR extends Component {
             position={[0, -0.001, 0]}
             width={2.5} height={2.5}
             arShadowReceiver={true} />
-       </ViroARImageMarker> */}
+       </ViroARImageMarker>
 
       </ViroARScene>
     );
@@ -380,7 +380,7 @@ ViroAnimations.registerAnimations({
       duration: 50, easing: "easeineaseout"},
   tapAnimation:[["scaleSphereUp", "scaleSphereDown"],],
 
-  scaleDice:{properties:{scaleX: .00, scaleY: .09, scaleZ: .09},
+  scaleDice:{properties:{scaleX: .09, scaleY: .09, scaleZ: .09},
       duration: 500, easing: "bounce" },
 })
 
